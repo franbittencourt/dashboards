@@ -116,7 +116,7 @@ table DimObra
 		source =
 				let
 					Source = #table(
-						type table [ProjetoID = Int64.Type, CodigoObra = type text, NomeProjeto = type text, Regiao = type text, AreaContratante = type text, FaseAtual = type text, DataInicio = type date, PrevisaoConclusao = type date, VersaoLinhaBase = type text, DataVersaoLinhaBase = type date, ValorLinhaBase = number, ValorRealizadoAcumulado = number, PercentualFinanceiro = number, StatusPrazo = type text],
+						type table [ProjetoID = Int64.Type, CodigoObra = text, NomeProjeto = text, Regiao = text, AreaContratante = text, FaseAtual = text, DataInicio = date, PrevisaoConclusao = date, VersaoLinhaBase = text, DataVersaoLinhaBase = date, ValorLinhaBase = number, ValorRealizadoAcumulado = number, PercentualFinanceiro = number, StatusPrazo = text],
 						{
 							{1, "OBR-001", "Duplicação Rodoviária Norte-Sul", "Norte", "Metrovia Urban Infra", "Execução", #date(2024,8,1), #date(2027,2,28), "Rev 2", #date(2025,6,1), 45000000.0, 30780000.0, 68.4, "Atenção"},
 							{2, "OBR-002", "Terminal Portuário Leste", "Leste", "PetroMax Óleo & Gás", "Execução", #date(2024,1,1), #date(2026,12,31), "Rev 3", #date(2025,9,1), 128500000.0, 95475500.0, 74.3, "Atenção"},

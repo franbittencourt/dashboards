@@ -55,7 +55,7 @@ table DimCalendario
 		source =
 				let
 					Source = #table(
-						type table [Data = type date, Ano = Int64.Type, MesNum = Int64.Type, MesNome = type text, AnoMes = type text, Trimestre = type text],
+						type table [Data = date, Ano = Int64.Type, MesNum = Int64.Type, MesNome = text, AnoMes = text, Trimestre = text],
 						{
 							{#date(2024,1,1), 2024, 1, "Janeiro", "Jan/2024", "T1"},
 							{#date(2024,2,1), 2024, 2, "Fevereiro", "Fev/2024", "T1"},

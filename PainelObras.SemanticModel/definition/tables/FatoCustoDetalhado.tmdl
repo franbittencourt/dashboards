@@ -49,7 +49,7 @@ table FatoCustoDetalhado
 		source =
 				let
 					Source = #table(
-						type table [ProjetoID = Int64.Type, ElementoObra = type text, TipoCusto = type text, GrupoCusto = type text, ClasseCusto = type text, ValorRealizadoAcumulado = number],
+						type table [ProjetoID = Int64.Type, ElementoObra = text, TipoCusto = text, GrupoCusto = text, ClasseCusto = text, ValorRealizadoAcumulado = number],
 						{
 							{1, "Fundação", "Direto", "Mão de Obra", "Mão de Obra Própria", 1344470.4},
 							{1, "Fundação", "Direto", "Mão de Obra", "Mão de Obra Terceirizada", 896313.6},
