@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
   "name": "vHdrTabCiclo",
   "position": {
-    "x": 1116,
-    "y": 12,
-    "z": 0,
-    "width": 140,
-    "height": 40,
-    "tabOrder": 5
+    "x": 1118,
+    "y": 13,
+    "z": 1,
+    "width": 138,
+    "height": 38,
+    "tabOrder": 6
   },
   "visual": {
     "visualType": "actionButton",
@@ -32,7 +32,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -48,7 +48,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#455A64'"
+                      "Value": "'#C7D6E8'"
                     }
                   }
                 }
@@ -86,7 +86,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFFFFF'"
+                      "Value": "'#10243E'"
                     }
                   }
                 }
@@ -110,7 +110,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#B0BEC5'"
+                      "Value": "'#46648C'"
                     }
                   }
                 }
@@ -128,6 +128,45 @@
       ]
     },
     "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "visualLink": [
         {
           "properties": {

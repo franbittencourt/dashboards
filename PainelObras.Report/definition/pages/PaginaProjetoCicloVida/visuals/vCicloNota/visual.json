@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
   "name": "vCicloNota",
   "position": {
-    "x": 942,
-    "y": 80,
+    "x": 960,
+    "y": 84,
     "z": 0,
-    "width": 290,
-    "height": 150,
-    "tabOrder": 10
+    "width": 296,
+    "height": 112,
+    "tabOrder": 11
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,23 @@
               {
                 "textRuns": [
                   {
-                    "value": "A curva abaixo considera todo o histórico do projeto, do início até hoje — não apenas o ano corrente.",
+                    "value": "Horizonte: ciclo de vida",
+                    "textStyle": {
+                      "fontSize": "11px",
+                      "fontWeight": "bold",
+                      "color": "#10243E"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "A curva e a matriz abaixo consideram todo o histórico do projeto, do início até hoje — não apenas o ano corrente.",
                     "textStyle": {
                       "fontSize": "10px",
                       "fontWeight": "normal",
-                      "color": "#455A64"
+                      "color": "#5A6472"
                     }
                   }
                 ]

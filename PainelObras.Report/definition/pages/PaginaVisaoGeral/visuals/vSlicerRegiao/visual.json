@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
-  "name": "vHdrSlicerObra",
+  "name": "vSlicerRegiao",
   "position": {
-    "x": 730,
-    "y": 10,
-    "z": 1,
-    "width": 210,
-    "height": 44,
+    "x": 290,
+    "y": 80,
+    "z": 0,
+    "width": 250,
+    "height": 52,
     "tabOrder": 4
   },
   "visual": {
@@ -23,12 +23,12 @@
                       "Entity": "DimObra"
                     }
                   },
-                  "Property": "NomeProjeto"
+                  "Property": "Regiao"
                 }
               },
-              "queryRef": "DimObra.NomeProjeto",
-              "nativeQueryRef": "NomeProjeto",
-              "displayName": "Selecionar obra"
+              "queryRef": "DimObra.Regiao",
+              "nativeQueryRef": "Regiao",
+              "displayName": "Região / Base"
             }
           ]
         }
@@ -114,7 +114,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Selecionar obra'"
+                  "Value": "'Região / Base'"
                 }
               }
             },

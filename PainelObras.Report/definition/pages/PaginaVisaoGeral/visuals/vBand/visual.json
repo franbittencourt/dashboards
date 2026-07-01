@@ -1,34 +1,64 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
-  "name": "vHomeSubtitle",
+  "name": "vBand",
   "position": {
-    "x": 60,
-    "y": 118,
-    "z": 1,
-    "width": 1000,
-    "height": 60,
-    "tabOrder": 2
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "width": 1280,
+    "height": 64,
+    "tabOrder": 0
   },
   "visual": {
-    "visualType": "textbox",
+    "visualType": "rectangle",
     "objects": {
+      "fill": [
+        {
+          "properties": {
+            "fillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#10243E'"
+                    }
+                  }
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
       "general": [
         {
           "properties": {
-            "paragraphs": [
-              {
-                "textRuns": [
-                  {
-                    "value": "Empreiteira · obras em Norte, Sul, Leste e Centro-Oeste",
-                    "textStyle": {
-                      "fontSize": "14px",
-                      "fontWeight": "normal",
-                      "color": "#CFD8DC"
-                    }
-                  }
-                ]
+            "cornerRadius": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
               }
-            ]
+            }
+          }
+        }
+      ],
+      "outline": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

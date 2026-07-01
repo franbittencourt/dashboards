@@ -3,11 +3,11 @@
   "name": "vGeralTabelaResumo",
   "position": {
     "x": 24,
-    "y": 410,
+    "y": 444,
     "z": 0,
     "width": 1232,
-    "height": 290,
-    "tabOrder": 7
+    "height": 260,
+    "tabOrder": 8
   },
   "visual": {
     "visualType": "tableEx",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "DimObra.CodigoObra",
-              "nativeQueryRef": "CodigoObra"
+              "nativeQueryRef": "CodigoObra",
+              "displayName": "Código"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "DimObra.NomeProjeto",
-              "nativeQueryRef": "NomeProjeto"
+              "nativeQueryRef": "NomeProjeto",
+              "displayName": "Projeto"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "DimObra.VersaoLinhaBase",
-              "nativeQueryRef": "VersaoLinhaBase"
+              "nativeQueryRef": "VersaoLinhaBase",
+              "displayName": "Versão LB"
             },
             {
               "field": {
@@ -69,7 +72,8 @@
                 }
               },
               "queryRef": "DimObra.ValorLinhaBase",
-              "nativeQueryRef": "ValorLinhaBase"
+              "nativeQueryRef": "ValorLinhaBase",
+              "displayName": "Orçado (LB)"
             },
             {
               "field": {
@@ -83,7 +87,23 @@
                 }
               },
               "queryRef": "DimObra.ValorRealizadoAcumulado",
-              "nativeQueryRef": "ValorRealizadoAcumulado"
+              "nativeQueryRef": "ValorRealizadoAcumulado",
+              "displayName": "Executado"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimObra"
+                    }
+                  },
+                  "Property": "PercentualFinanceiro"
+                }
+              },
+              "queryRef": "DimObra.PercentualFinanceiro",
+              "nativeQueryRef": "PercentualFinanceiro",
+              "displayName": "% Fin."
             },
             {
               "field": {
@@ -97,7 +117,8 @@
                 }
               },
               "queryRef": "DimObra.FaseAtual",
-              "nativeQueryRef": "FaseAtual"
+              "nativeQueryRef": "FaseAtual",
+              "displayName": "Fase"
             },
             {
               "field": {
@@ -111,7 +132,8 @@
                 }
               },
               "queryRef": "DimObra.AreaContratante",
-              "nativeQueryRef": "AreaContratante"
+              "nativeQueryRef": "AreaContratante",
+              "displayName": "Contratante"
             },
             {
               "field": {
@@ -125,7 +147,8 @@
                 }
               },
               "queryRef": "DimObra.PrevisaoConclusao",
-              "nativeQueryRef": "PrevisaoConclusao"
+              "nativeQueryRef": "PrevisaoConclusao",
+              "displayName": "Conclusão Prevista"
             }
           ]
         }
@@ -152,14 +175,14 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "12D"
                 }
               }
             },
-            "bold": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             },
@@ -168,7 +191,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#000000'"
+                      "Value": "'#10243E'"
                     }
                   }
                 }

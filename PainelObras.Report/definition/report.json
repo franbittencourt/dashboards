@@ -5,11 +5,41 @@
       "name": "CY24SU10",
       "reportVersionAtImport": "5.55",
       "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "PainelObrasTheme.json",
+      "reportVersionAtImport": "5.55",
+      "type": "RegisteredResources"
     }
   },
   "layoutOptimization": "None",
-  "resourcePackages": [],
+  "resourcePackages": [
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "PainelObrasTheme.json",
+          "path": "PainelObrasTheme.json",
+          "type": "CustomTheme"
+        }
+      ]
+    },
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY24SU10",
+          "path": "BaseThemes/CY24SU10.json",
+          "type": "BaseTheme"
+        }
+      ]
+    }
+  ],
   "settings": {
-    "useStylableVisualContainerHeader": true
+    "useStylableVisualContainerHeader": true,
+    "useEnhancedTooltips": true,
+    "defaultDrillFilterOtherVisuals": true
   }
 }

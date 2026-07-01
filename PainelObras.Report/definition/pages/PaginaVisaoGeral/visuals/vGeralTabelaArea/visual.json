@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
   "name": "vGeralTabelaArea",
   "position": {
-    "x": 760,
-    "y": 70,
+    "x": 470,
+    "y": 148,
     "z": 0,
-    "width": 496,
-    "height": 320,
-    "tabOrder": 6
+    "width": 786,
+    "height": 280,
+    "tabOrder": 7
   },
   "visual": {
     "visualType": "tableEx",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "DimObra.AreaContratante",
-              "nativeQueryRef": "AreaContratante"
+              "nativeQueryRef": "AreaContratante",
+              "displayName": "Área Contratante"
             },
             {
               "field": {
@@ -41,7 +42,38 @@
                 }
               },
               "queryRef": "Medidas.Total de Obras",
-              "nativeQueryRef": "Total de Obras"
+              "nativeQueryRef": "Total de Obras",
+              "displayName": "Obras"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Orçamento Total Portfólio"
+                }
+              },
+              "queryRef": "Medidas.Orçamento Total Portfólio",
+              "nativeQueryRef": "Orçamento Total Portfólio",
+              "displayName": "Orçamento (Linha de Base)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Valor Total Executado"
+                }
+              },
+              "queryRef": "Medidas.Valor Total Executado",
+              "nativeQueryRef": "Valor Total Executado",
+              "displayName": "Executado"
             }
           ]
         }
@@ -61,21 +93,21 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Obras por Área Contratante'"
+                  "Value": "'Obras e Valores por Área Contratante'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "12D"
                 }
               }
             },
-            "bold": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             },
@@ -84,7 +116,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#000000'"
+                      "Value": "'#10243E'"
                     }
                   }
                 }

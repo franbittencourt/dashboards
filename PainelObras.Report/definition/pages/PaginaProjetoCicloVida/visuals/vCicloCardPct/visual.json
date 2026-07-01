@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
   "name": "vCicloCardPct",
   "position": {
-    "x": 636,
-    "y": 80,
+    "x": 648,
+    "y": 84,
     "z": 0,
-    "width": 290,
-    "height": 110,
-    "tabOrder": 9
+    "width": 296,
+    "height": 112,
+    "tabOrder": 10
   },
   "visual": {
     "visualType": "card",
@@ -57,14 +57,14 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "12D"
                 }
               }
             },
-            "bold": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             },
@@ -73,7 +73,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#000000'"
+                      "Value": "'#10243E'"
                     }
                   }
                 }

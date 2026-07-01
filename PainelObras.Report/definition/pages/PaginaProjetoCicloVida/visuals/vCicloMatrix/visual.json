@@ -3,11 +3,11 @@
   "name": "vCicloMatrix",
   "position": {
     "x": 24,
-    "y": 500,
+    "y": 496,
     "z": 0,
-    "width": 1208,
-    "height": 210,
-    "tabOrder": 12
+    "width": 1232,
+    "height": 208,
+    "tabOrder": 13
   },
   "visual": {
     "visualType": "pivotTable",
@@ -93,28 +93,6 @@
         }
       }
     },
-    "objects": {
-      "grid": [
-        {
-          "properties": {
-            "rowSubtotals": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "outlineSymbol": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ]
-    },
     "visualContainerObjects": {
       "title": [
         {
@@ -136,14 +114,14 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "12D"
                 }
               }
             },
-            "bold": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             },
@@ -152,7 +130,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#000000'"
+                      "Value": "'#10243E'"
                     }
                   }
                 }

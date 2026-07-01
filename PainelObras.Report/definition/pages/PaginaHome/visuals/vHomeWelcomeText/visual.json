@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Este painel acompanha o avanço físico-financeiro das obras em execução. Use o botão abaixo para explorar o portfólio completo ou, a partir da Visão Geral, selecione uma obra para o detalhamento orçamentário (PAN) e de ciclo de vida.",
+                    "value": "Este painel acompanha o avanço físico-financeiro das obras em execução. Use o botão abaixo para explorar o portfólio, ou substitua esta página pelo visual HTML Content com a medida 'HTML Capa' (ver docs/pbip-leia-me.md).",
                     "textStyle": {
                       "fontSize": "12px",
                       "fontWeight": "normal",
-                      "color": "#455A64"
+                      "color": "#5A6472"
                     }
                   }
                 ]

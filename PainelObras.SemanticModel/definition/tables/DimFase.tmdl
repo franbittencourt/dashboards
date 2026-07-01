@@ -31,11 +31,11 @@ table DimFase
 					Source = #table(
 						type table [Fase = text, Ordem = Int64.Type, Cor = text],
 						{
-							{"Planejamento", 1, "#B0BEC5"},
-							{"Pré-Contratação", 2, "#90A4AE"},
-							{"Contratação", 3, "#78909C"},
+							{"Planejamento", 1, "#9575CD"},
+							{"Pré-Contratação", 2, "#00897B"},
+							{"Contratação", 3, "#A0522D"},
 							{"Execução", 4, "#1E88E5"},
-							{"Encerramento", 5, "#FB8C00"},
+							{"Encerramento", 5, "#EF6C00"},
 							{"Concluído", 6, "#43A047"},
 							{"Cancelado", 7, "#E53935"}
 						}

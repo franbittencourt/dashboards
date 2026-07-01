@@ -3,11 +3,11 @@
   "name": "vHdrBtnVoltar",
   "position": {
     "x": 24,
-    "y": 16,
-    "z": 0,
-    "width": 140,
+    "y": 14,
+    "z": 1,
+    "width": 120,
     "height": 36,
-    "tabOrder": 0
+    "tabOrder": 1
   },
   "visual": {
     "visualType": "actionButton",
@@ -32,7 +32,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "11D"
                 }
               }
             },
@@ -48,7 +48,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#10243E'"
+                      "Value": "'#FFFFFF'"
                     }
                   }
                 }
@@ -86,7 +86,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFFFFF'"
+                      "Value": "'#1B3A5F'"
                     }
                   }
                 }
@@ -110,7 +110,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#B0BEC5'"
+                      "Value": "'#46648C'"
                     }
                   }
                 }
@@ -128,6 +128,45 @@
       ]
     },
     "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "visualLink": [
         {
           "properties": {

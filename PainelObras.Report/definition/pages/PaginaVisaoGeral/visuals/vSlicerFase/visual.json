@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
-  "name": "vHdrSlicerObra",
+  "name": "vSlicerFase",
   "position": {
-    "x": 730,
-    "y": 10,
-    "z": 1,
-    "width": 210,
-    "height": 44,
-    "tabOrder": 4
+    "x": 556,
+    "y": 80,
+    "z": 0,
+    "width": 250,
+    "height": 52,
+    "tabOrder": 5
   },
   "visual": {
     "visualType": "slicer",
@@ -20,15 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimObra"
+                      "Entity": "DimFase"
                     }
                   },
-                  "Property": "NomeProjeto"
+                  "Property": "Fase"
                 }
               },
-              "queryRef": "DimObra.NomeProjeto",
-              "nativeQueryRef": "NomeProjeto",
-              "displayName": "Selecionar obra"
+              "queryRef": "DimFase.Fase",
+              "nativeQueryRef": "Fase",
+              "displayName": "Fase do Projeto"
             }
           ]
         }
@@ -114,7 +114,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Selecionar obra'"
+                  "Value": "'Fase do Projeto'"
                 }
               }
             },

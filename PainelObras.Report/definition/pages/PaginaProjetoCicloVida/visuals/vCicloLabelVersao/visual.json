@@ -3,11 +3,11 @@
   "name": "vCicloLabelVersao",
   "position": {
     "x": 24,
-    "y": 190,
+    "y": 198,
     "z": 0,
-    "width": 290,
-    "height": 40,
-    "tabOrder": 7
+    "width": 296,
+    "height": 30,
+    "tabOrder": 8
   },
   "visual": {
     "visualType": "card",
@@ -36,6 +36,21 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -57,14 +72,14 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "12D"
                 }
               }
             },
-            "bold": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             },
@@ -73,7 +88,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#000000'"
+                      "Value": "'#10243E'"
                     }
                   }
                 }

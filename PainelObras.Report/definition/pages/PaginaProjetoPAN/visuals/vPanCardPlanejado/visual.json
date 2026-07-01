@@ -3,11 +3,11 @@
   "name": "vPanCardPlanejado",
   "position": {
     "x": 24,
-    "y": 80,
+    "y": 84,
     "z": 0,
-    "width": 290,
-    "height": 130,
-    "tabOrder": 6
+    "width": 296,
+    "height": 112,
+    "tabOrder": 7
   },
   "visual": {
     "visualType": "card",
@@ -57,14 +57,14 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "11D"
+                  "Value": "12D"
                 }
               }
             },
-            "bold": {
+            "fontFamily": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "'Segoe UI Semibold'"
                 }
               }
             },
@@ -73,7 +73,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#000000'"
+                      "Value": "'#10243E'"
                     }
                   }
                 }
