@@ -1,0 +1,23 @@
+relationship FatoRealizadoMensal_DimObra
+	fromColumn: FatoRealizadoMensal.ProjetoID
+	toColumn: DimObra.ProjetoID
+
+relationship FatoRealizadoMensal_DimCalendario
+	fromColumn: FatoRealizadoMensal.Data
+	toColumn: DimCalendario.Data
+
+relationship FatoPlanejadoPAN_DimObra
+	fromColumn: FatoPlanejadoPAN.ProjetoID
+	toColumn: DimObra.ProjetoID
+
+relationship FatoPlanejadoPAN_DimCalendario
+	fromColumn: FatoPlanejadoPAN.Data
+	toColumn: DimCalendario.Data
+
+relationship FatoCustoDetalhado_DimObra
+	fromColumn: FatoCustoDetalhado.ProjetoID
+	toColumn: DimObra.ProjetoID
+
+relationship DimObra_DimFase
+	fromColumn: DimObra.FaseAtual
+	toColumn: DimFase.Fase

@@ -1,0 +1,91 @@
+table Medidas
+
+	measure 'Total de Obras' = DISTINCTCOUNT(DimObra[ProjetoID])
+		formatString: 0
+
+	measure 'Obras Ativas' = ```
+			CALCULATE(
+			    [Total de Obras],
+			    DimObra[FaseAtual] <> "Concluído",
+			    DimObra[FaseAtual] <> "Cancelado"
+			)
+			```
+		formatString: 0
+
+	measure 'Obras em Atenção ou Atraso' = CALCULATE([Total de Obras], DimObra[StatusPrazo] IN {"Atenção", "Atrasada"})
+		formatString: 0
+
+	measure 'Orçamento Total Portfólio' = SUM(DimObra[ValorLinhaBase])
+		formatString: "R$"\ #,##0
+
+	measure 'Valor Total Executado' = SUM(DimObra[ValorRealizadoAcumulado])
+		formatString: "R$"\ #,##0
+
+	measure '% Médio de Execução Portfólio' = DIVIDE([Valor Total Executado], [Orçamento Total Portfólio])
+		formatString: 0.0%
+
+	measure 'Planejado PAN Ano Corrente' = SUM(FatoPlanejadoPAN[ValorPlanejadoPAN])
+		formatString: "R$"\ #,##0
+
+	measure 'Realizado Ano Corrente' = CALCULATE(SUM(FatoRealizadoMensal[ValorRealizadoMes]), FatoRealizadoMensal[Ano] = 2026)
+		formatString: "R$"\ #,##0
+
+	measure 'Saldo PAN a Realizar' = [Planejado PAN Ano Corrente] - [Realizado Ano Corrente]
+		formatString: "R$"\ #,##0
+
+	measure '% do PAN Realizado no Ano' = DIVIDE([Realizado Ano Corrente], [Planejado PAN Ano Corrente])
+		formatString: 0.0%
+
+	measure 'Realizado Mês' = SUM(FatoRealizadoMensal[ValorRealizadoMes])
+		formatString: "R$"\ #,##0
+
+	measure 'Planejado PAN Mês' = SUM(FatoPlanejadoPAN[ValorPlanejadoPAN])
+		formatString: "R$"\ #,##0
+
+	measure 'Custo Linha de Base' = SUM(DimObra[ValorLinhaBase])
+		formatString: "R$"\ #,##0
+
+	measure 'Valor Realizado Acumulado' = MAX(FatoRealizadoMensal[ValorRealizadoAcumulado])
+		formatString: "R$"\ #,##0
+
+	measure '% Financeiro Realizado' = DIVIDE([Valor Realizado Acumulado], [Custo Linha de Base])
+		formatString: 0.0%
+
+	measure 'Justificativa do Mês' = MAX(FatoRealizadoMensal[Justificativa])
+
+	measure 'Realizado por Categoria de Custo' = SUM(FatoCustoDetalhado[ValorRealizadoAcumulado])
+		formatString: "R$"\ #,##0
+
+	measure 'Rótulo Linha de Base' = ```
+			"Custo Linha de Base (" & SELECTEDVALUE(DimObra[VersaoLinhaBase]) & " – " &
+			FORMAT(SELECTEDVALUE(DimObra[DataVersaoLinhaBase]), "dd/mm/yyyy") & ")"
+			```
+
+	measure 'Rótulo Planejado PAN' = "Planejado PAN " & FORMAT(MAX(FatoPlanejadoPAN[Ano]), "0")
+
+	measure 'Projeto Selecionado' = ```
+			SELECTEDVALUE(DimObra[NomeProjeto], "Selecione uma obra") & " (" &
+			SELECTEDVALUE(DimObra[CodigoObra], "-") & ")"
+			```
+
+	measure 'Fase Selecionada' = SELECTEDVALUE(DimObra[FaseAtual], "-")
+
+	column Column1
+		dataType: int64
+		isHidden
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Medidas = m
+		mode: import
+		source =
+				let
+					Source = #table({"Column1"}, {{0}})
+				in
+					Source
+
+	annotation PBI_ResultType = Table
+	annotation PBI_NavigationStepName = Navigation

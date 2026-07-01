@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "vHdrSlicerObra",
+  "position": {
+    "x": 580,
+    "y": 12,
+    "z": 0,
+    "width": 220,
+    "height": 44,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimObra"
+                    }
+                  },
+                  "Property": "NomeProjeto"
+                }
+              },
+              "queryRef": "DimObra.NomeProjeto",
+              "nativeQueryRef": "NomeProjeto"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "Vertical"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

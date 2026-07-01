@@ -1,0 +1,182 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "vGeralTabelaResumo",
+  "position": {
+    "x": 24,
+    "y": 410,
+    "z": 0,
+    "width": 1232,
+    "height": 290,
+    "tabOrder": 7
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimObra"
+                    }
+                  },
+                  "Property": "CodigoObra"
+                }
+              },
+              "queryRef": "DimObra.CodigoObra",
+              "nativeQueryRef": "CodigoObra"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimObra"
+                    }
+                  },
+                  "Property": "NomeProjeto"
+                }
+              },
+              "queryRef": "DimObra.NomeProjeto",
+              "nativeQueryRef": "NomeProjeto"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimObra"
+                    }
+                  },
+                  "Property": "VersaoLinhaBase"
+                }
+              },
+              "queryRef": "DimObra.VersaoLinhaBase",
+              "nativeQueryRef": "VersaoLinhaBase"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimObra"
+                    }
+                  },
+                  "Property": "ValorLinhaBase"
+                }
+              },
+              "queryRef": "DimObra.ValorLinhaBase",
+              "nativeQueryRef": "ValorLinhaBase"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimObra"
+                    }
+                  },
+                  "Property": "ValorRealizadoAcumulado"
+                }
+              },
+              "queryRef": "DimObra.ValorRealizadoAcumulado",
+              "nativeQueryRef": "ValorRealizadoAcumulado"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimObra"
+                    }
+                  },
+                  "Property": "FaseAtual"
+                }
+              },
+              "queryRef": "DimObra.FaseAtual",
+              "nativeQueryRef": "FaseAtual"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimObra"
+                    }
+                  },
+                  "Property": "AreaContratante"
+                }
+              },
+              "queryRef": "DimObra.AreaContratante",
+              "nativeQueryRef": "AreaContratante"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimObra"
+                    }
+                  },
+                  "Property": "PrevisaoConclusao"
+                }
+              },
+              "queryRef": "DimObra.PrevisaoConclusao",
+              "nativeQueryRef": "PrevisaoConclusao"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Resumo Financeiro por Obra'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

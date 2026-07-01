@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "vHomeWelcomeText",
+  "position": {
+    "x": 60,
+    "y": 500,
+    "z": 0,
+    "width": 1140,
+    "height": 90,
+    "tabOrder": 7
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Este painel acompanha o avanço físico-financeiro das obras em execução. Use o botão abaixo para explorar o portfólio completo ou, a partir da Visão Geral, selecione uma obra para o detalhamento orçamentário (PAN) e de ciclo de vida.",
+                    "textStyle": {
+                      "fontSize": "12px",
+                      "fontWeight": "normal",
+                      "color": "#455A64"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

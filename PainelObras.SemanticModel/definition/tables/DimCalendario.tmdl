@@ -1,0 +1,100 @@
+table DimCalendario
+
+	column Data
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		summarizeBy: none
+		sourceColumn: Data
+		isKey
+
+		annotation SummarizationSetBy = Automatic
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesNum
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: MesNum
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesNome
+		dataType: string
+		summarizeBy: none
+		sourceColumn: MesNome
+		sortByColumn: MesNum
+
+		annotation SummarizationSetBy = Automatic
+
+	column AnoMes
+		dataType: string
+		summarizeBy: none
+		sourceColumn: AnoMes
+		sortByColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCalendario = m
+		mode: import
+		source =
+				let
+					Source = #table(
+						{"Data", "Ano", "MesNum", "MesNome", "AnoMes", "Trimestre"},
+						{
+							{#date(2024,1,1), 2024, 1, "Janeiro", "Jan/2024", "T1"},
+							{#date(2024,2,1), 2024, 2, "Fevereiro", "Fev/2024", "T1"},
+							{#date(2024,3,1), 2024, 3, "Março", "Mar/2024", "T1"},
+							{#date(2024,4,1), 2024, 4, "Abril", "Abr/2024", "T2"},
+							{#date(2024,5,1), 2024, 5, "Maio", "Mai/2024", "T2"},
+							{#date(2024,6,1), 2024, 6, "Junho", "Jun/2024", "T2"},
+							{#date(2024,7,1), 2024, 7, "Julho", "Jul/2024", "T3"},
+							{#date(2024,8,1), 2024, 8, "Agosto", "Ago/2024", "T3"},
+							{#date(2024,9,1), 2024, 9, "Setembro", "Set/2024", "T3"},
+							{#date(2024,10,1), 2024, 10, "Outubro", "Out/2024", "T4"},
+							{#date(2024,11,1), 2024, 11, "Novembro", "Nov/2024", "T4"},
+							{#date(2024,12,1), 2024, 12, "Dezembro", "Dez/2024", "T4"},
+							{#date(2025,1,1), 2025, 1, "Janeiro", "Jan/2025", "T1"},
+							{#date(2025,2,1), 2025, 2, "Fevereiro", "Fev/2025", "T1"},
+							{#date(2025,3,1), 2025, 3, "Março", "Mar/2025", "T1"},
+							{#date(2025,4,1), 2025, 4, "Abril", "Abr/2025", "T2"},
+							{#date(2025,5,1), 2025, 5, "Maio", "Mai/2025", "T2"},
+							{#date(2025,6,1), 2025, 6, "Junho", "Jun/2025", "T2"},
+							{#date(2025,7,1), 2025, 7, "Julho", "Jul/2025", "T3"},
+							{#date(2025,8,1), 2025, 8, "Agosto", "Ago/2025", "T3"},
+							{#date(2025,9,1), 2025, 9, "Setembro", "Set/2025", "T3"},
+							{#date(2025,10,1), 2025, 10, "Outubro", "Out/2025", "T4"},
+							{#date(2025,11,1), 2025, 11, "Novembro", "Nov/2025", "T4"},
+							{#date(2025,12,1), 2025, 12, "Dezembro", "Dez/2025", "T4"},
+							{#date(2026,1,1), 2026, 1, "Janeiro", "Jan/2026", "T1"},
+							{#date(2026,2,1), 2026, 2, "Fevereiro", "Fev/2026", "T1"},
+							{#date(2026,3,1), 2026, 3, "Março", "Mar/2026", "T1"},
+							{#date(2026,4,1), 2026, 4, "Abril", "Abr/2026", "T2"},
+							{#date(2026,5,1), 2026, 5, "Maio", "Mai/2026", "T2"},
+							{#date(2026,6,1), 2026, 6, "Junho", "Jun/2026", "T2"},
+							{#date(2026,7,1), 2026, 7, "Julho", "Jul/2026", "T3"},
+							{#date(2026,8,1), 2026, 8, "Agosto", "Ago/2026", "T3"},
+							{#date(2026,9,1), 2026, 9, "Setembro", "Set/2026", "T3"},
+							{#date(2026,10,1), 2026, 10, "Outubro", "Out/2026", "T4"},
+							{#date(2026,11,1), 2026, 11, "Novembro", "Nov/2026", "T4"},
+							{#date(2026,12,1), 2026, 12, "Dezembro", "Dez/2026", "T4"}
+						}
+					)
+				in
+					Source
+
+	annotation PBI_ResultType = Table

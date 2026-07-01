@@ -1,0 +1,164 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "vCicloMatrix",
+  "position": {
+    "x": 24,
+    "y": 500,
+    "z": 0,
+    "width": 1208,
+    "height": 210,
+    "tabOrder": 12
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FatoCustoDetalhado"
+                    }
+                  },
+                  "Property": "ElementoObra"
+                }
+              },
+              "queryRef": "FatoCustoDetalhado.ElementoObra",
+              "nativeQueryRef": "ElementoObra"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FatoCustoDetalhado"
+                    }
+                  },
+                  "Property": "TipoCusto"
+                }
+              },
+              "queryRef": "FatoCustoDetalhado.TipoCusto",
+              "nativeQueryRef": "TipoCusto"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FatoCustoDetalhado"
+                    }
+                  },
+                  "Property": "GrupoCusto"
+                }
+              },
+              "queryRef": "FatoCustoDetalhado.GrupoCusto",
+              "nativeQueryRef": "GrupoCusto"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FatoCustoDetalhado"
+                    }
+                  },
+                  "Property": "ClasseCusto"
+                }
+              },
+              "queryRef": "FatoCustoDetalhado.ClasseCusto",
+              "nativeQueryRef": "ClasseCusto"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Realizado por Categoria de Custo"
+                }
+              },
+              "queryRef": "Medidas.Realizado por Categoria de Custo",
+              "nativeQueryRef": "Realizado por Categoria de Custo"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "rowSubtotals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "outlineSymbol": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Realizado por Elemento da Obra / Tipo / Grupo / Classe de Custo'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#000000'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
