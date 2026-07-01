@@ -1,0 +1,46 @@
+table DimFase
+
+	column Fase
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Fase
+		sortByColumn: Ordem
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordem
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Ordem
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cor
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Cor
+		isHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimFase = m
+		mode: import
+		source =
+				let
+					Source = #table(
+						{"Fase", "Ordem", "Cor"},
+						{
+							{"Planejamento", 1, "#B0BEC5"},
+							{"Pré-Contratação", 2, "#90A4AE"},
+							{"Contratação", 3, "#78909C"},
+							{"Execução", 4, "#1E88E5"},
+							{"Encerramento", 5, "#FB8C00"},
+							{"Concluído", 6, "#43A047"},
+							{"Cancelado", 7, "#E53935"}
+						}
+					)
+				in
+					Source
+
+	annotation PBI_ResultType = Table

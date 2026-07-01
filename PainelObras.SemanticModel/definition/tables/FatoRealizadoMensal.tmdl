@@ -1,0 +1,329 @@
+table FatoRealizadoMensal
+
+	column ProjetoID
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: ProjetoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesNome
+		dataType: string
+		summarizeBy: none
+		sourceColumn: MesNome
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValorRealizadoMes
+		dataType: double
+		formatString: "R$"\ #,##0
+		summarizeBy: sum
+		sourceColumn: ValorRealizadoMes
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValorRealizadoAcumulado
+		dataType: double
+		formatString: "R$"\ #,##0
+		summarizeBy: sum
+		sourceColumn: ValorRealizadoAcumulado
+
+		annotation SummarizationSetBy = Automatic
+
+	column Justificativa
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Justificativa
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FatoRealizadoMensal = m
+		mode: import
+		source =
+				let
+					Source = #table(
+						{"ProjetoID", "Data", "Ano", "Mes", "MesNome", "ValorRealizadoMes", "ValorRealizadoAcumulado", "Justificativa"},
+						{
+							{1, #date(2024,8,1), 2024, 8, "Agosto", 233340.1, 233340.1, null},
+							{1, #date(2024,9,1), 2024, 9, "Setembro", 127180.28, 360520.38, "Atraso na entrega de equipamentos importados"},
+							{1, #date(2024,10,1), 2024, 10, "Outubro", 188366.26, 548886.64, null},
+							{1, #date(2024,11,1), 2024, 11, "Novembro", 318286.16, 867172.81, null},
+							{1, #date(2024,12,1), 2024, 12, "Dezembro", 464920.1, 1332092.91, null},
+							{1, #date(2025,1,1), 2025, 1, "Janeiro", 714072.7, 2046165.6, "Mobilização de mão de obra abaixo do previsto"},
+							{1, #date(2025,2,1), 2025, 2, "Fevereiro", 845552.35, 2891717.95, null},
+							{1, #date(2025,3,1), 2025, 3, "Março", 1292050.12, 4183768.07, null},
+							{1, #date(2025,4,1), 2025, 4, "Abril", 1582864.96, 5766633.03, null},
+							{1, #date(2025,5,1), 2025, 5, "Maio", 2151526.46, 7918159.49, null},
+							{1, #date(2025,6,1), 2025, 6, "Junho", 2813665.03, 10731824.52, null},
+							{1, #date(2025,7,1), 2025, 7, "Julho", 2820959.5, 13552784.02, null},
+							{1, #date(2025,8,1), 2025, 8, "Agosto", 3081181.6, 16633965.62, null},
+							{1, #date(2025,9,1), 2025, 9, "Setembro", 3297088.47, 19931054.1, null},
+							{1, #date(2025,10,1), 2025, 10, "Outubro", 2840362.47, 22771416.56, null},
+							{1, #date(2025,11,1), 2025, 11, "Novembro", 2152524.69, 24923941.25, "Condições climáticas adversas reduziram produtividade em campo"},
+							{1, #date(2025,12,1), 2025, 12, "Dezembro", 1822435.28, 26746376.53, null},
+							{1, #date(2026,1,1), 2026, 1, "Janeiro", 1414508.17, 28160884.7, null},
+							{1, #date(2026,2,1), 2026, 2, "Fevereiro", 827432.1, 28988316.8, null},
+							{1, #date(2026,3,1), 2026, 3, "Março", 700545.69, 29688862.49, null},
+							{1, #date(2026,4,1), 2026, 4, "Abril", 467215.06, 30156077.54, null},
+							{1, #date(2026,5,1), 2026, 5, "Maio", 289644.87, 30445722.41, null},
+							{1, #date(2026,6,1), 2026, 6, "Junho", 185086.4, 30630808.81, null},
+							{1, #date(2026,7,1), 2026, 7, "Julho", 149191.19, 30780000.0, null},
+							{2, #date(2024,1,1), 2024, 1, "Janeiro", 788391.29, 788391.29, null},
+							{2, #date(2024,2,1), 2024, 2, "Fevereiro", 295642.57, 1084033.86, null},
+							{2, #date(2024,3,1), 2024, 3, "Março", 348271.43, 1432305.29, null},
+							{2, #date(2024,4,1), 2024, 4, "Abril", 547980.1, 1980285.39, null},
+							{2, #date(2024,5,1), 2024, 5, "Maio", 729029.1, 2709314.48, null},
+							{2, #date(2024,6,1), 2024, 6, "Junho", 920210.05, 3629524.54, null},
+							{2, #date(2024,7,1), 2024, 7, "Julho", 1308000.66, 4937525.2, null},
+							{2, #date(2024,8,1), 2024, 8, "Agosto", 1664199.15, 6601724.35, null},
+							{2, #date(2024,9,1), 2024, 9, "Setembro", 2559690.14, 9161414.49, null},
+							{2, #date(2024,10,1), 2024, 10, "Outubro", 3150553.65, 12311968.14, null},
+							{2, #date(2024,11,1), 2024, 11, "Novembro", 3575203.28, 15887171.42, null},
+							{2, #date(2024,12,1), 2024, 12, "Dezembro", 4549105.75, 20436277.17, null},
+							{2, #date(2025,1,1), 2025, 1, "Janeiro", 6066065.17, 26502342.34, null},
+							{2, #date(2025,2,1), 2025, 2, "Fevereiro", 5880033.96, 32382376.31, null},
+							{2, #date(2025,3,1), 2025, 3, "Março", 7833921.4, 40216297.7, null},
+							{2, #date(2025,4,1), 2025, 4, "Abril", 8214279.02, 48430576.73, null},
+							{2, #date(2025,5,1), 2025, 5, "Maio", 7472372.79, 55902949.52, null},
+							{2, #date(2025,6,1), 2025, 6, "Junho", 6515115.31, 62418064.83, null},
+							{2, #date(2025,7,1), 2025, 7, "Julho", 7234019.92, 69652084.75, "Antecipação de frentes de serviço por liberação antecipada de licença"},
+							{2, #date(2025,8,1), 2025, 8, "Agosto", 5790959.31, 75443044.06, null},
+							{2, #date(2025,9,1), 2025, 9, "Setembro", 4997788.84, 80440832.9, null},
+							{2, #date(2025,10,1), 2025, 10, "Outubro", 3568774.05, 84009606.95, null},
+							{2, #date(2025,11,1), 2025, 11, "Novembro", 3013869.44, 87023476.39, null},
+							{2, #date(2025,12,1), 2025, 12, "Dezembro", 2536998.81, 89560475.2, null},
+							{2, #date(2026,1,1), 2026, 1, "Janeiro", 1821843.89, 91382319.09, "Aditivo contratual aprovado alterou ritmo de execução"},
+							{2, #date(2026,2,1), 2026, 2, "Fevereiro", 1206821.7, 92589140.79, null},
+							{2, #date(2026,3,1), 2026, 3, "Março", 895465.38, 93484606.17, null},
+							{2, #date(2026,4,1), 2026, 4, "Abril", 765620.91, 94250227.08, null},
+							{2, #date(2026,5,1), 2026, 5, "Maio", 535750.68, 94785977.76, null},
+							{2, #date(2026,6,1), 2026, 6, "Junho", 411217.33, 95197195.08, null},
+							{2, #date(2026,7,1), 2026, 7, "Julho", 278304.92, 95475500.0, null},
+							{3, #date(2024,3,1), 2024, 3, "Março", 1559328.09, 1559328.09, null},
+							{3, #date(2024,4,1), 2024, 4, "Abril", 567143.34, 2126471.44, null},
+							{3, #date(2024,5,1), 2024, 5, "Maio", 921199.44, 3047670.88, null},
+							{3, #date(2024,6,1), 2024, 6, "Junho", 1221428.51, 4269099.39, null},
+							{3, #date(2024,7,1), 2024, 7, "Julho", 1794445.68, 6063545.07, null},
+							{3, #date(2024,8,1), 2024, 8, "Agosto", 2340612.92, 8404157.99, null},
+							{3, #date(2024,9,1), 2024, 9, "Setembro", 2801508.68, 11205666.67, null},
+							{3, #date(2024,10,1), 2024, 10, "Outubro", 4127878.25, 15333544.91, null},
+							{3, #date(2024,11,1), 2024, 11, "Novembro", 5081841.52, 20415386.43, null},
+							{3, #date(2024,12,1), 2024, 12, "Dezembro", 8270182.56, 28685568.99, null},
+							{3, #date(2025,1,1), 2025, 1, "Janeiro", 10390275.33, 39075844.33, null},
+							{3, #date(2025,2,1), 2025, 2, "Fevereiro", 12619997.55, 51695841.88, null},
+							{3, #date(2025,3,1), 2025, 3, "Março", 13119976.3, 64815818.18, null},
+							{3, #date(2025,4,1), 2025, 4, "Abril", 13772622.25, 78588440.43, "Aditivo contratual aprovado alterou ritmo de execução"},
+							{3, #date(2025,5,1), 2025, 5, "Maio", 17814145.35, 96402585.77, "Atraso na entrega de equipamentos importados"},
+							{3, #date(2025,6,1), 2025, 6, "Junho", 18084374.59, 114486960.36, null},
+							{3, #date(2025,7,1), 2025, 7, "Julho", 13875154.61, 128362114.97, null},
+							{3, #date(2025,8,1), 2025, 8, "Agosto", 13709180.83, 142071295.81, "Condições climáticas adversas reduziram produtividade em campo"},
+							{3, #date(2025,9,1), 2025, 9, "Setembro", 10480948.08, 152552243.88, null},
+							{3, #date(2025,10,1), 2025, 10, "Outubro", 10120266.22, 162672510.1, null},
+							{3, #date(2025,11,1), 2025, 11, "Novembro", 7976385.0, 170648895.1, null},
+							{3, #date(2025,12,1), 2025, 12, "Dezembro", 5231995.03, 175880890.13, null},
+							{3, #date(2026,1,1), 2026, 1, "Janeiro", 4284194.65, 180165084.78, null},
+							{3, #date(2026,2,1), 2026, 2, "Fevereiro", 3221082.52, 183386167.3, null},
+							{3, #date(2026,3,1), 2026, 3, "Março", 2192660.89, 185578828.18, null},
+							{3, #date(2026,4,1), 2026, 4, "Abril", 1832312.88, 187411141.06, null},
+							{3, #date(2026,5,1), 2026, 5, "Maio", 1187672.29, 188598813.35, null},
+							{3, #date(2026,6,1), 2026, 6, "Junho", 806659.86, 189405473.21, "Aditivo contratual aprovado alterou ritmo de execução"},
+							{3, #date(2026,7,1), 2026, 7, "Julho", 624526.79, 190030000.0, null},
+							{4, #date(2026,4,1), 2026, 4, "Abril", 0.0, 0.0, null},
+							{4, #date(2026,5,1), 2026, 5, "Maio", 0.0, 0.0, null},
+							{4, #date(2026,6,1), 2026, 6, "Junho", 0.0, 0.0, null},
+							{4, #date(2026,7,1), 2026, 7, "Julho", 0.0, 0.0, null},
+							{5, #date(2026,5,1), 2026, 5, "Maio", 0.0, 0.0, null},
+							{5, #date(2026,6,1), 2026, 6, "Junho", 0.0, 0.0, null},
+							{5, #date(2026,7,1), 2026, 7, "Julho", 0.0, 0.0, null},
+							{6, #date(2026,6,1), 2026, 6, "Junho", 83645.91, 83645.91, "Mobilização de mão de obra abaixo do previsto"},
+							{6, #date(2026,7,1), 2026, 7, "Julho", 1002354.09, 1086000.0, null},
+							{7, #date(2024,6,1), 2024, 6, "Junho", 153566.28, 153566.28, null},
+							{7, #date(2024,7,1), 2024, 7, "Julho", 72727.97, 226294.24, null},
+							{7, #date(2024,8,1), 2024, 8, "Agosto", 115304.4, 341598.65, null},
+							{7, #date(2024,9,1), 2024, 9, "Setembro", 151346.15, 492944.8, null},
+							{7, #date(2024,10,1), 2024, 10, "Outubro", 220442.61, 713387.41, null},
+							{7, #date(2024,11,1), 2024, 11, "Novembro", 337456.6, 1050844.02, null},
+							{7, #date(2024,12,1), 2024, 12, "Dezembro", 522992.41, 1573836.43, null},
+							{7, #date(2025,1,1), 2025, 1, "Janeiro", 596544.56, 2170380.98, null},
+							{7, #date(2025,2,1), 2025, 2, "Fevereiro", 963302.26, 3133683.25, "Aditivo contratual aprovado alterou ritmo de execução"},
+							{7, #date(2025,3,1), 2025, 3, "Março", 1271803.49, 4405486.74, null},
+							{7, #date(2025,4,1), 2025, 4, "Abril", 1324367.15, 5729853.89, null},
+							{7, #date(2025,5,1), 2025, 5, "Maio", 1801231.71, 7531085.6, "Antecipação de frentes de serviço por liberação antecipada de licença"},
+							{7, #date(2025,6,1), 2025, 6, "Junho", 1952399.29, 9483484.89, null},
+							{7, #date(2025,7,1), 2025, 7, "Julho", 1771759.86, 11255244.75, null},
+							{7, #date(2025,8,1), 2025, 8, "Agosto", 1744815.62, 13000060.37, null},
+							{7, #date(2025,9,1), 2025, 9, "Setembro", 1843530.86, 14843591.23, "Antecipação de frentes de serviço por liberação antecipada de licença"},
+							{7, #date(2025,10,1), 2025, 10, "Outubro", 1373080.78, 16216672.01, "Condições climáticas adversas reduziram produtividade em campo"},
+							{7, #date(2025,11,1), 2025, 11, "Novembro", 1145385.36, 17362057.37, "Atraso na entrega de equipamentos importados"},
+							{7, #date(2025,12,1), 2025, 12, "Dezembro", 892978.72, 18255036.08, null},
+							{7, #date(2026,1,1), 2026, 1, "Janeiro", 722366.46, 18977402.54, null},
+							{7, #date(2026,2,1), 2026, 2, "Fevereiro", 526212.14, 19503614.68, "Antecipação de frentes de serviço por liberação antecipada de licença"},
+							{7, #date(2026,3,1), 2026, 3, "Março", 313104.02, 19816718.69, null},
+							{7, #date(2026,4,1), 2026, 4, "Abril", 210060.32, 20026779.01, null},
+							{7, #date(2026,5,1), 2026, 5, "Maio", 161294.74, 20188073.75, null},
+							{7, #date(2026,6,1), 2026, 6, "Junho", 126010.09, 20314083.84, null},
+							{7, #date(2026,7,1), 2026, 7, "Julho", 83916.16, 20398000.0, null},
+							{8, #date(2024,2,1), 2024, 2, "Fevereiro", 292824.52, 292824.52, null},
+							{8, #date(2024,3,1), 2024, 3, "Março", 129724.49, 422549.01, "Atraso na entrega de equipamentos importados"},
+							{8, #date(2024,4,1), 2024, 4, "Abril", 160122.11, 582671.12, null},
+							{8, #date(2024,5,1), 2024, 5, "Maio", 230062.26, 812733.39, null},
+							{8, #date(2024,6,1), 2024, 6, "Junho", 337993.48, 1150726.87, null},
+							{8, #date(2024,7,1), 2024, 7, "Julho", 422807.19, 1573534.06, null},
+							{8, #date(2024,8,1), 2024, 8, "Agosto", 576467.52, 2150001.58, null},
+							{8, #date(2024,9,1), 2024, 9, "Setembro", 859588.51, 3009590.1, null},
+							{8, #date(2024,10,1), 2024, 10, "Outubro", 964439.58, 3974029.68, null},
+							{8, #date(2024,11,1), 2024, 11, "Novembro", 1385247.43, 5359277.1, null},
+							{8, #date(2024,12,1), 2024, 12, "Dezembro", 1992354.02, 7351631.12, null},
+							{8, #date(2025,1,1), 2025, 1, "Janeiro", 2458037.39, 9809668.51, null},
+							{8, #date(2025,2,1), 2025, 2, "Fevereiro", 2345932.55, 12155601.06, "Aditivo contratual aprovado alterou ritmo de execução"},
+							{8, #date(2025,3,1), 2025, 3, "Março", 2772528.98, 14928130.03, null},
+							{8, #date(2025,4,1), 2025, 4, "Abril", 3046585.23, 17974715.27, null},
+							{8, #date(2025,5,1), 2025, 5, "Maio", 3663462.68, 21638177.95, "Condições climáticas adversas reduziram produtividade em campo"},
+							{8, #date(2025,6,1), 2025, 6, "Junho", 3523628.85, 25161806.8, null},
+							{8, #date(2025,7,1), 2025, 7, "Julho", 3248536.95, 28410343.75, null},
+							{8, #date(2025,8,1), 2025, 8, "Agosto", 2531770.63, 30942114.38, null},
+							{8, #date(2025,9,1), 2025, 9, "Setembro", 2016090.28, 32958204.66, null},
+							{8, #date(2025,10,1), 2025, 10, "Outubro", 1922010.8, 34880215.46, null},
+							{8, #date(2025,11,1), 2025, 11, "Novembro", 1467609.12, 36347824.58, "Atraso na entrega de equipamentos importados"},
+							{8, #date(2025,12,1), 2025, 12, "Dezembro", 1103496.45, 37451321.02, null},
+							{8, #date(2026,1,1), 2026, 1, "Janeiro", 905377.51, 38356698.53, null},
+							{8, #date(2026,2,1), 2026, 2, "Fevereiro", 625359.78, 38982058.31, null},
+							{8, #date(2026,3,1), 2026, 3, "Março", 391664.33, 39373722.64, "Renegociação de escopo com o contratante"},
+							{8, #date(2026,4,1), 2026, 4, "Abril", 349322.42, 39723045.06, null},
+							{8, #date(2026,5,1), 2026, 5, "Maio", 224602.6, 39947647.65, null},
+							{8, #date(2026,6,1), 2026, 6, "Junho", 177535.21, 40125182.87, null},
+							{8, #date(2026,7,1), 2026, 7, "Julho", 136317.13, 40261500.0, null},
+							{9, #date(2024,9,1), 2024, 9, "Setembro", 20744.76, 20744.76, null},
+							{9, #date(2024,10,1), 2024, 10, "Outubro", 11267.4, 32012.16, null},
+							{9, #date(2024,11,1), 2024, 11, "Novembro", 16561.22, 48573.39, null},
+							{9, #date(2024,12,1), 2024, 12, "Dezembro", 29652.7, 78226.08, null},
+							{9, #date(2025,1,1), 2025, 1, "Janeiro", 45634.92, 123861.0, null},
+							{9, #date(2025,2,1), 2025, 2, "Fevereiro", 60575.57, 184436.57, null},
+							{9, #date(2025,3,1), 2025, 3, "Março", 92647.19, 277083.76, null},
+							{9, #date(2025,4,1), 2025, 4, "Abril", 116476.82, 393560.58, null},
+							{9, #date(2025,5,1), 2025, 5, "Maio", 189587.01, 583147.59, "Condições climáticas adversas reduziram produtividade em campo"},
+							{9, #date(2025,6,1), 2025, 6, "Junho", 239157.45, 822305.04, null},
+							{9, #date(2025,7,1), 2025, 7, "Julho", 292104.78, 1114409.82, null},
+							{9, #date(2025,8,1), 2025, 8, "Agosto", 308744.0, 1423153.81, "Renegociação de escopo com o contratante"},
+							{9, #date(2025,9,1), 2025, 9, "Setembro", 313615.32, 1736769.14, null},
+							{9, #date(2025,10,1), 2025, 10, "Outubro", 232246.53, 1969015.66, null},
+							{9, #date(2025,11,1), 2025, 11, "Novembro", 232399.52, 2201415.18, null},
+							{9, #date(2025,12,1), 2025, 12, "Dezembro", 164934.74, 2366349.93, null},
+							{9, #date(2026,1,1), 2026, 1, "Janeiro", 140138.53, 2506488.46, null},
+							{9, #date(2026,2,1), 2026, 2, "Fevereiro", 96570.91, 2603059.37, "Renegociação de escopo com o contratante"},
+							{9, #date(2026,3,1), 2026, 3, "Março", 67382.43, 2670441.79, null},
+							{9, #date(2026,4,1), 2026, 4, "Abril", 44899.02, 2715340.82, null},
+							{9, #date(2026,5,1), 2026, 5, "Maio", 26229.76, 2741570.58, null},
+							{9, #date(2026,6,1), 2026, 6, "Junho", 19568.94, 2761139.52, "Mobilização de mão de obra abaixo do previsto"},
+							{9, #date(2026,7,1), 2026, 7, "Julho", 10860.48, 2772000.0, null},
+							{10, #date(2024,11,1), 2024, 11, "Novembro", 388428.84, 388428.84, null},
+							{10, #date(2024,12,1), 2024, 12, "Dezembro", 264901.09, 653329.93, null},
+							{10, #date(2025,1,1), 2025, 1, "Janeiro", 342207.56, 995537.49, null},
+							{10, #date(2025,2,1), 2025, 2, "Fevereiro", 651036.0, 1646573.49, null},
+							{10, #date(2025,3,1), 2025, 3, "Março", 855748.82, 2502322.31, null},
+							{10, #date(2025,4,1), 2025, 4, "Abril", 1256741.48, 3759063.79, null},
+							{10, #date(2025,5,1), 2025, 5, "Maio", 2058800.7, 5817864.49, null},
+							{10, #date(2025,6,1), 2025, 6, "Junho", 2980685.02, 8798549.51, null},
+							{10, #date(2025,7,1), 2025, 7, "Julho", 4250481.63, 13049031.14, null},
+							{10, #date(2025,8,1), 2025, 8, "Agosto", 5092691.55, 18141722.7, null},
+							{10, #date(2025,9,1), 2025, 9, "Setembro", 6011767.51, 24153490.21, null},
+							{10, #date(2025,10,1), 2025, 10, "Outubro", 5746570.5, 29900060.7, null},
+							{10, #date(2025,11,1), 2025, 11, "Novembro", 4519704.58, 34419765.28, null},
+							{10, #date(2025,12,1), 2025, 12, "Dezembro", 3893948.06, 38313713.34, null},
+							{10, #date(2026,1,1), 2026, 1, "Janeiro", 3286083.47, 41599796.8, null},
+							{10, #date(2026,2,1), 2026, 2, "Fevereiro", 2302036.2, 43901833.0, null},
+							{10, #date(2026,3,1), 2026, 3, "Março", 1452740.52, 45354573.52, null},
+							{10, #date(2026,4,1), 2026, 4, "Abril", 960768.28, 46315341.81, null},
+							{10, #date(2026,5,1), 2026, 5, "Maio", 540555.18, 46855896.98, null},
+							{10, #date(2026,6,1), 2026, 6, "Junho", 413176.84, 47269073.82, null},
+							{10, #date(2026,7,1), 2026, 7, "Julho", 237726.18, 47506800.0, null},
+							{11, #date(2024,4,1), 2024, 4, "Abril", 954846.17, 954846.17, null},
+							{11, #date(2024,5,1), 2024, 5, "Maio", 370059.06, 1324905.23, null},
+							{11, #date(2024,6,1), 2024, 6, "Junho", 574997.18, 1899902.41, null},
+							{11, #date(2024,7,1), 2024, 7, "Julho", 803806.77, 2703709.18, null},
+							{11, #date(2024,8,1), 2024, 8, "Agosto", 991143.1, 3694852.29, null},
+							{11, #date(2024,9,1), 2024, 9, "Setembro", 1699344.52, 5394196.81, null},
+							{11, #date(2024,10,1), 2024, 10, "Outubro", 1984372.87, 7378569.68, null},
+							{11, #date(2024,11,1), 2024, 11, "Novembro", 2759185.2, 10137754.88, null},
+							{11, #date(2024,12,1), 2024, 12, "Dezembro", 4156998.47, 14294753.35, null},
+							{11, #date(2025,1,1), 2025, 1, "Janeiro", 4633982.84, 18928736.19, null},
+							{11, #date(2025,2,1), 2025, 2, "Fevereiro", 5714503.23, 24643239.42, null},
+							{11, #date(2025,3,1), 2025, 3, "Março", 8713031.27, 33356270.69, null},
+							{11, #date(2025,4,1), 2025, 4, "Abril", 9296367.98, 42652638.66, null},
+							{11, #date(2025,5,1), 2025, 5, "Maio", 10572320.53, 53224959.19, null},
+							{11, #date(2025,6,1), 2025, 6, "Junho", 10140194.71, 63365153.9, null},
+							{11, #date(2025,7,1), 2025, 7, "Julho", 10852763.39, 74217917.28, null},
+							{11, #date(2025,8,1), 2025, 8, "Agosto", 9218999.14, 83436916.43, null},
+							{11, #date(2025,9,1), 2025, 9, "Setembro", 8215440.95, 91652357.37, null},
+							{11, #date(2025,10,1), 2025, 10, "Outubro", 6234357.78, 97886715.15, null},
+							{11, #date(2025,11,1), 2025, 11, "Novembro", 4940522.55, 102827237.69, null},
+							{11, #date(2025,12,1), 2025, 12, "Dezembro", 3544593.76, 106371831.45, null},
+							{11, #date(2026,1,1), 2026, 1, "Janeiro", 3020877.49, 109392708.94, null},
+							{11, #date(2026,2,1), 2026, 2, "Fevereiro", 2318934.26, 111711643.21, null},
+							{11, #date(2026,3,1), 2026, 3, "Março", 1665657.21, 113377300.42, null},
+							{11, #date(2026,4,1), 2026, 4, "Abril", 1199933.37, 114577233.79, null},
+							{11, #date(2026,5,1), 2026, 5, "Maio", 833656.45, 115410890.24, null},
+							{11, #date(2026,6,1), 2026, 6, "Junho", 515909.35, 115926799.59, null},
+							{11, #date(2026,7,1), 2026, 7, "Julho", 418800.41, 116345600.0, null},
+							{12, #date(2024,1,1), 2024, 1, "Janeiro", 2070341.68, 2070341.68, null},
+							{12, #date(2024,2,1), 2024, 2, "Fevereiro", 640713.58, 2711055.26, null},
+							{12, #date(2024,3,1), 2024, 3, "Março", 894838.91, 3605894.17, null},
+							{12, #date(2024,4,1), 2024, 4, "Abril", 1297922.89, 4903817.06, null},
+							{12, #date(2024,5,1), 2024, 5, "Maio", 1667673.8, 6571490.87, null},
+							{12, #date(2024,6,1), 2024, 6, "Junho", 2296903.75, 8868394.62, null},
+							{12, #date(2024,7,1), 2024, 7, "Julho", 3253043.38, 12121438.0, null},
+							{12, #date(2024,8,1), 2024, 8, "Agosto", 4251789.02, 16373227.02, null},
+							{12, #date(2024,9,1), 2024, 9, "Setembro", 5795595.58, 22168822.6, null},
+							{12, #date(2024,10,1), 2024, 10, "Outubro", 6787282.45, 28956105.05, null},
+							{12, #date(2024,11,1), 2024, 11, "Novembro", 10414343.28, 39370448.33, "Mobilização de mão de obra abaixo do previsto"},
+							{12, #date(2024,12,1), 2024, 12, "Dezembro", 11632116.01, 51002564.34, null},
+							{12, #date(2025,1,1), 2025, 1, "Janeiro", 15266792.25, 66269356.59, null},
+							{12, #date(2025,2,1), 2025, 2, "Fevereiro", 18331011.91, 84600368.5, "Mobilização de mão de obra abaixo do previsto"},
+							{12, #date(2025,3,1), 2025, 3, "Março", 16186587.2, 100786955.7, null},
+							{12, #date(2025,4,1), 2025, 4, "Abril", 21015852.93, 121802808.63, null},
+							{12, #date(2025,5,1), 2025, 5, "Maio", 19606424.36, 141409232.99, null},
+							{12, #date(2025,6,1), 2025, 6, "Junho", 18195301.08, 159604534.07, null},
+							{12, #date(2025,7,1), 2025, 7, "Julho", 18317816.71, 177922350.78, null},
+							{12, #date(2025,8,1), 2025, 8, "Agosto", 13645352.89, 191567703.67, null},
+							{12, #date(2025,9,1), 2025, 9, "Setembro", 11633578.1, 203201281.77, null},
+							{12, #date(2025,10,1), 2025, 10, "Outubro", 10550322.54, 213751604.32, null},
+							{12, #date(2025,11,1), 2025, 11, "Novembro", 8195114.79, 221946719.11, null},
+							{12, #date(2025,12,1), 2025, 12, "Dezembro", 5896984.74, 227843703.84, null},
+							{12, #date(2026,1,1), 2026, 1, "Janeiro", 4681220.04, 232524923.89, "Renegociação de escopo com o contratante"},
+							{12, #date(2026,2,1), 2026, 2, "Fevereiro", 3559894.29, 236084818.18, null},
+							{12, #date(2026,3,1), 2026, 3, "Março", 2701673.42, 238786491.6, "Aditivo contratual aprovado alterou ritmo de execução"},
+							{12, #date(2026,4,1), 2026, 4, "Abril", 1814128.13, 240600619.72, "Atraso na entrega de equipamentos importados"},
+							{12, #date(2026,5,1), 2026, 5, "Maio", 1262636.02, 241863255.75, null},
+							{12, #date(2026,6,1), 2026, 6, "Junho", 973320.23, 242836575.98, null},
+							{12, #date(2026,7,1), 2026, 7, "Julho", 693424.02, 243530000.0, "Condições climáticas adversas reduziram produtividade em campo"}
+						}
+					)
+				in
+					Source
+
+	annotation PBI_ResultType = Table

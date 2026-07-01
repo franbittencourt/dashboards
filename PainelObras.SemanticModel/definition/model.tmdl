@@ -1,0 +1,20 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	discourageImplicitMeasures
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["DimObra","DimCalendario","DimFase","FatoRealizadoMensal","FatoPlanejadoPAN","FatoCustoDetalhado"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+ref table DimObra
+ref table DimCalendario
+ref table DimFase
+ref table FatoRealizadoMensal
+ref table FatoPlanejadoPAN
+ref table FatoCustoDetalhado
+ref table Medidas

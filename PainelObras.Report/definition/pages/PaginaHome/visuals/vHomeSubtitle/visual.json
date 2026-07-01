@@ -1,0 +1,37 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "vHomeSubtitle",
+  "position": {
+    "x": 60,
+    "y": 118,
+    "z": 1,
+    "width": 1000,
+    "height": 60,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Empreiteira · obras em Norte, Sul, Leste e Centro-Oeste · atualizado em 01/07/2026",
+                    "textStyle": {
+                      "fontSize": "14px",
+                      "fontWeight": "normal",
+                      "color": "#CFD8DC"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

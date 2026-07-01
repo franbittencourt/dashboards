@@ -1,0 +1,135 @@
+table DimObra
+
+	column ProjetoID
+		dataType: int64
+		formatString: 0
+		summarizeBy: none
+		sourceColumn: ProjetoID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CodigoObra
+		dataType: string
+		summarizeBy: none
+		sourceColumn: CodigoObra
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomeProjeto
+		dataType: string
+		summarizeBy: none
+		sourceColumn: NomeProjeto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Regiao
+		dataType: string
+		summarizeBy: none
+		sourceColumn: Regiao
+
+		annotation SummarizationSetBy = Automatic
+
+	column AreaContratante
+		dataType: string
+		summarizeBy: none
+		sourceColumn: AreaContratante
+
+		annotation SummarizationSetBy = Automatic
+
+	column FaseAtual
+		dataType: string
+		summarizeBy: none
+		sourceColumn: FaseAtual
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataInicio
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		summarizeBy: none
+		sourceColumn: DataInicio
+
+		annotation SummarizationSetBy = Automatic
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PrevisaoConclusao
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		summarizeBy: none
+		sourceColumn: PrevisaoConclusao
+
+		annotation SummarizationSetBy = Automatic
+		annotation UnderlyingDateTimeDataType = Date
+
+	column VersaoLinhaBase
+		dataType: string
+		summarizeBy: none
+		sourceColumn: VersaoLinhaBase
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataVersaoLinhaBase
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		summarizeBy: none
+		sourceColumn: DataVersaoLinhaBase
+
+		annotation SummarizationSetBy = Automatic
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ValorLinhaBase
+		dataType: double
+		formatString: "R$"\ #,##0
+		summarizeBy: sum
+		sourceColumn: ValorLinhaBase
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValorRealizadoAcumulado
+		dataType: double
+		formatString: "R$"\ #,##0
+		summarizeBy: sum
+		sourceColumn: ValorRealizadoAcumulado
+
+		annotation SummarizationSetBy = Automatic
+
+	column PercentualFinanceiro
+		dataType: double
+		formatString: 0.0"%"
+		summarizeBy: average
+		sourceColumn: PercentualFinanceiro
+
+		annotation SummarizationSetBy = Automatic
+
+	column StatusPrazo
+		dataType: string
+		summarizeBy: none
+		sourceColumn: StatusPrazo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimObra = m
+		mode: import
+		source =
+				let
+					Source = #table(
+						{"ProjetoID", "CodigoObra", "NomeProjeto", "Regiao", "AreaContratante", "FaseAtual", "DataInicio", "PrevisaoConclusao", "VersaoLinhaBase", "DataVersaoLinhaBase", "ValorLinhaBase", "ValorRealizadoAcumulado", "PercentualFinanceiro", "StatusPrazo"},
+						{
+							{1, "OBR-001", "Duplicação Rodoviária Norte-Sul", "Norte", "Metrovia Urban Infra", "Execução", #date(2024,8,1), #date(2027,2,28), "Rev 2", #date(2025,6,1), 45000000.0, 30780000.0, 68.4, "Atenção"},
+							{2, "OBR-002", "Terminal Portuário Leste", "Leste", "PetroMax Óleo & Gás", "Execução", #date(2024,1,1), #date(2026,12,31), "Rev 3", #date(2025,9,1), 128500000.0, 95475500.0, 74.3, "Atenção"},
+							{3, "OBR-003", "UHE Salto Sul", "Sul", "Hidro Sul Energia", "Execução", #date(2024,3,1), #date(2027,9,30), "Rev 1", #date(2024,3,10), 310000000.0, 190030000.0, 61.3, "Atenção"},
+							{4, "OBR-004", "Estação de Tratamento Centro-Oeste", "Centro-Oeste", "Metrovia Urban Infra", "Planejamento", #date(2026,4,1), #date(2028,12,31), "Rev 0", #date(2026,3,20), 62000000.0, 0.0, 0.0, "Não iniciado"},
+							{5, "OBR-005", "Gasoduto Trecho Leste II", "Leste", "PetroMax Óleo & Gás", "Pré-Contratação", #date(2026,5,1), #date(2028,5,31), "Rev 0", #date(2026,5,1), 89000000.0, 0.0, 0.0, "Não iniciado"},
+							{6, "OBR-006", "Linha de Transmissão Sul-Norte", "Sul", "Hidro Sul Energia", "Contratação", #date(2026,6,1), #date(2028,9,30), "Rev 0", #date(2026,6,10), 54300000.0, 1086000.0, 2.0, "Não iniciado"},
+							{7, "OBR-007", "Viaduto Zona Norte", "Norte", "Metrovia Urban Infra", "Encerramento", #date(2024,6,1), #date(2026,8,31), "Rev 2", #date(2025,4,5), 21700000.0, 20398000.0, 94.0, "Atenção"},
+							{8, "OBR-008", "Subestação Elétrica Leste", "Leste", "Hidro Sul Energia", "Concluído", #date(2024,2,1), #date(2026,5,31), "Rev 2", #date(2025,1,1), 38900000.0, 40261500.0, 103.5, "Concluído no prazo"},
+							{9, "OBR-009", "Adutora Regional Centro-Oeste", "Centro-Oeste", "PetroMax Óleo & Gás", "Cancelado", #date(2024,9,1), #date(2025,2,28), "Rev 1", #date(2024,9,15), 15400000.0, 2772000.0, 18.0, "Cancelado"},
+							{10, "OBR-010", "Ponte Rio Verde", "Sul", "Metrovia Urban Infra", "Execução", #date(2024,11,1), #date(2027,4,30), "Rev 1", #date(2024,11,1), 73200000.0, 47506800.0, 64.9, "Atenção"},
+							{11, "OBR-011", "Complexo Industrial Norte", "Norte", "PetroMax Óleo & Gás", "Execução", #date(2024,4,1), #date(2026,12,31), "Rev 2", #date(2025,5,10), 156800000.0, 116345600.0, 74.2, "Atenção"},
+							{12, "OBR-012", "Refinaria Módulo B", "Leste", "PetroMax Óleo & Gás", "Concluído", #date(2024,1,1), #date(2026,3,31), "Rev 3", #date(2025,8,1), 245000000.0, 243530000.0, 99.4, "Concluído no prazo"}
+						}
+					)
+				in
+					Source
+
+	annotation PBI_ResultType = Table
