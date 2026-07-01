@@ -13,20 +13,19 @@ Projeto Power BI de exemplo (formato **PBIP**: modelo semântico em **TMDL** + r
 
 ## Importante: este projeto foi gerado sem acesso ao Power BI Desktop
 
-Todo o JSON/TMDL foi escrito manualmente seguindo a especificação do formato PBIP/PBIR/TMDL, mas **não pôde ser aberto e validado visualmente** antes da entrega (o ambiente onde foi gerado é Linux, sem o Power BI Desktop instalado). Ou seja: a estrutura, os relacionamentos, as medidas DAX e os dados foram todos verificados programaticamente (JSON válido, sintaxe TMDL consistente), mas alguns detalhes finos de formatação de visual podem precisar de um pequeno ajuste manual na primeira abertura. Veja a lista abaixo — nenhum desses pontos deve impedir o arquivo de abrir, mas fique de olho neles.
+Todo o JSON/TMDL foi escrito manualmente seguindo a especificação do formato PBIP/PBIR/TMDL. Numa primeira versão isso causou um erro real ao abrir (`Cannot find file 'version.json'`) — faltava um arquivo obrigatório (`PainelObras.Report/definition/version.json`) que as versões mais recentes do Power BI Desktop passaram a exigir. Esse arquivo foi adicionado, e nessa correção também validamos a estrutura dos visuais (título, ações de botão) contra projetos PBIP reais publicados publicamente, então a maior parte das incertezas da primeira versão foi resolvida:
 
-### Passos manuais recomendados após abrir (dão o "acabamento" final)
+- **Ações de navegação dos botões já estão configuradas** (Home ⇄ Visão Geral, abas "Orçamento Anual (PAN)" ⇄ "Ciclo de Vida", botões "‹ Voltar"). Se algum botão específico não navegar, é um ajuste de ~10s: Formatar botão → Ação → Tipo: Navegação de página → Destino.
+- **Títulos dos gráficos/cards** foram movidos para a propriedade correta (`visualContainerObjects`), confirmada em exemplos reais.
 
-1. **Ações dos botões de navegação.** Os botões (Home → Visão Geral, Visão Geral → Home, abas "Orçamento Anual (PAN)" ⇄ "Ciclo de Vida", botões "‹ Voltar") foram criados com aparência de aba/CTA prontos (cor, texto, formato), mas a **ação de clique** (Format → Botão → Ação → Tipo: Navegação de página → Destino) é o item de maior incerteza deste arquivo e pode precisar ser configurada manualmente para cada botão (é um ajuste de ~10 segundos por botão no painel Formatar). Mapa de destinos:
-   - Home `vHomeButtonEnter` → página **Visão Geral**
-   - Visão Geral `vGeralBtnHome` → página **Home**
-   - Visão Projeto (ambas as páginas) `vHdrBtnVoltar` → página **Visão Geral**
-   - `vHdrTabPAN` → página **Visão Projeto - Orçamento Anual (PAN)**
-   - `vHdrTabCiclo` → página **Visão Projeto - Ciclo de Vida**
-2. **Sincronizar o slicer "Selecionar Obra"** entre as duas páginas de Visão Projeto (View → Sincronizar Segmentações de Dados → marcar as duas páginas), para que trocar de obra numa aba reflita na outra automaticamente.
-3. **Capa (Home):** o plano de fundo está como um retângulo azul-marinho sólido (`vHomeHero`), no lugar da imagem de capa da empreiteira — troque por Formatar página → Fundo do Canvas → Imagem com a foto real. O visual **"HTML Content"** (custom visual do AppSource) mencionado na proposta como bloco de boas-vindas rico **não está incluído no arquivo** — como ele depende de um pacote binário externo que não pôde ser embutido/validado aqui, foi substituído por um textbox nativo equivalente (`vHomeWelcomeText`). Para evoluir para o visual real: Inserir → Mais Visuais → AppSource → procurar "HTML Content" → instalar → recriar o card usando as medidas de `Medidas` como texto dinâmico.
-4. **Cores de fase no donut/badges:** a tabela `DimFase` já tem uma coluna `Cor` (hex por fase) pensada para colorir consistentemente o donut da Visão Geral e qualquer badge de fase — como o JSON de "cores de dados" por categoria é um dos formatos mais sensíveis a erro de sintaxe, essa amarração de cor **não foi aplicada automaticamente** no arquivo; é rápido de fazer manualmente (Formatar visual → Cores de dados → por categoria) usando os hex da tabela como referência.
-5. Revise os títulos dinâmicos: o card "Custo Linha de Base" mostra o valor numérico; logo abaixo, um segundo card (`vCicloLabelVersao`) mostra o texto "Custo Linha de Base (Rev X – dd/mm/aaaa)" como legenda — se preferir, uma vez confirmado que a formatação abre bem, dá para consolidar isso num título dinâmico do próprio card.
+Se ainda assim algo não abrir de primeira, seria útil relatar a mensagem de erro completa (igual à anterior) para eu corrigir — o Power BI é bastante estrito com esse formato e pequenas divergências de schema podem aparecer em versões futuras do Desktop.
+
+### Passos manuais recomendados (melhorias, não bloqueiam a abertura)
+
+1. **Sincronizar o slicer "Selecionar Obra"** entre as duas páginas de Visão Projeto (View → Sincronizar Segmentações de Dados → marcar as duas páginas), para que trocar de obra numa aba reflita na outra automaticamente.
+2. **Capa (Home):** o plano de fundo está como um retângulo azul-marinho sólido (`vHomeHero`), no lugar da imagem de capa da empreiteira — troque por Formatar página → Fundo do Canvas → Imagem com a foto real. O visual **"HTML Content"** (custom visual do AppSource) mencionado na proposta como bloco de boas-vindas rico **não está incluído no arquivo** — como ele depende de um pacote binário externo que não pôde ser embutido/validado aqui, foi substituído por um textbox nativo equivalente (`vHomeWelcomeText`). Para evoluir para o visual real: Inserir → Mais Visuais → AppSource → procurar "HTML Content" → instalar → recriar o card usando as medidas de `Medidas` como texto dinâmico.
+3. **Cores de fase no donut/badges:** a tabela `DimFase` já tem uma coluna `Cor` (hex por fase) pensada para colorir consistentemente o donut da Visão Geral e qualquer badge de fase — essa amarração de cor **não foi aplicada automaticamente** no arquivo; é rápido de fazer manualmente (Formatar visual → Cores de dados → por categoria) usando os hex da tabela como referência.
+4. Revise os títulos dinâmicos: o card "Custo Linha de Base" mostra o valor numérico; logo abaixo, um segundo card (`vCicloLabelVersao`) mostra o texto "Custo Linha de Base (Rev X – dd/mm/aaaa)" como legenda — se preferir, dá para consolidar isso num título dinâmico do próprio card.
 
 ## O que está implementado
 

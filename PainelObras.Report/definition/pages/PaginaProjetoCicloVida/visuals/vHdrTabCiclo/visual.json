@@ -114,19 +114,6 @@
             }
           }
         }
-      ],
-      "general": [
-        {
-          "properties": {
-            "shapeType": {
-              "expr": {
-                "Literal": {
-                  "Value": "'rectangle'"
-                }
-              }
-            }
-          }
-        }
       ]
     }
   }

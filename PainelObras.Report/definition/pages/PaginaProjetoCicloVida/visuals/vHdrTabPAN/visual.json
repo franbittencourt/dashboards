@@ -125,14 +125,30 @@
             }
           }
         }
-      ],
-      "general": [
+      ]
+    },
+    "visualContainerObjects": {
+      "visualLink": [
         {
           "properties": {
-            "shapeType": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "'rectangle'"
+                  "Value": "true"
+                }
+              }
+            },
+            "type": {
+              "expr": {
+                "Literal": {
+                  "Value": "'PageNavigation'"
+                }
+              }
+            },
+            "navigationSection": {
+              "expr": {
+                "Literal": {
+                  "Value": "'PaginaProjetoPAN'"
                 }
               }
             }

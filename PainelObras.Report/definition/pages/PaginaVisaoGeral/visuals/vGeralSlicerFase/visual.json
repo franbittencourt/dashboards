@@ -33,20 +33,7 @@
         }
       }
     },
-    "objects": {
-      "general": [
-        {
-          "properties": {
-            "orientation": {
-              "expr": {
-                "Literal": {
-                  "Value": "Vertical"
-                }
-              }
-            }
-          }
-        }
-      ],
+    "visualContainerObjects": {
       "title": [
         {
           "properties": {
