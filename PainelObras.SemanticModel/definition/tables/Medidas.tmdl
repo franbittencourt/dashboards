@@ -70,6 +70,36 @@ table Medidas
 
 	measure 'Fase Selecionada' = SELECTEDVALUE(DimObra[FaseAtual], "-")
 
+	/// Retorna o HTML da capa. Use com o visual custom "HTML Content" (AppSource):
+	/// coloque esta medida no campo "Values" do visual.
+	measure 'HTML Capa' = ```
+			VAR _obrasAtivas = [Obras Ativas]
+			VAR _orcamento   = [Orçamento Total Portfólio]
+			VAR _pctExec     = [% Médio de Execução Portfólio]
+			VAR _atencao     = [Obras em Atenção ou Atraso]
+			VAR _orcTxt      = "R$ " & FORMAT ( DIVIDE ( _orcamento, 1000000000 ), "0.0" ) & " bi"
+			VAR _pctTxt      = FORMAT ( _pctExec, "0.0%" )
+			VAR _card =
+			    "<div style='flex:1; min-width:150px; background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:18px 20px; margin:6px;'>"
+			VAR _lbl =
+			    "<div style='font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:#B9C6DA; margin-bottom:6px;'>"
+			VAR _num =
+			    "<div style='font-size:30px; font-weight:700; color:#FFFFFF; line-height:1;'>"
+			RETURN
+			"<div style='font-family:Segoe UI,Roboto,Helvetica,Arial,sans-serif; background:linear-gradient(135deg,#0B1F38 0%,#12385F 55%,#1E6FB8 100%); border-radius:18px; padding:34px 38px; color:#FFFFFF; box-shadow:0 10px 30px rgba(0,0,0,.25);'>"
+			    & "<div style='font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:#8FB4DD; font-weight:600;'>Painel de Acompanhamento de Obras</div>"
+			    & "<div style='font-size:34px; font-weight:800; margin:6px 0 2px 0;'>Portfólio de Obras</div>"
+			    & "<div style='font-size:14px; color:#C7D6E8; margin-bottom:22px;'>Empreiteira &bull; Norte &bull; Sul &bull; Leste &bull; Centro-Oeste</div>"
+			    & "<div style='display:flex; flex-wrap:wrap; margin:-6px;'>"
+			        & _card & _lbl & "Obras ativas</div>" & _num & _obrasAtivas & "</div></div>"
+			        & _card & _lbl & "Orçamento do portfólio</div>" & _num & _orcTxt & "</div></div>"
+			        & _card & _lbl & "Execução média</div>" & _num & _pctTxt & "</div></div>"
+			        & _card & _lbl & "Obras em atenção/atraso</div>" & _num & _atencao & "</div></div>"
+			    & "</div>"
+			    & "<div style='font-size:12px; color:#9FB3CC; margin-top:20px;'>Selecione <b>Visão Geral</b> para explorar o portfólio ou entre em uma obra para o detalhamento orçamentário (PAN) e de ciclo de vida.</div>"
+			& "</div>"
+			```
+
 	column Column1
 		dataType: int64
 		isHidden
@@ -83,7 +113,7 @@ table Medidas
 		mode: import
 		source =
 				let
-					Source = #table({"Column1"}, {{0}})
+					Source = #table(type table [Column1 = Int64.Type], {{0}})
 				in
 					Source
 

@@ -29,7 +29,7 @@ table DimFase
 		source =
 				let
 					Source = #table(
-						{"Fase", "Ordem", "Cor"},
+						type table [Fase = type text, Ordem = Int64.Type, Cor = type text],
 						{
 							{"Planejamento", 1, "#B0BEC5"},
 							{"Pré-Contratação", 2, "#90A4AE"},

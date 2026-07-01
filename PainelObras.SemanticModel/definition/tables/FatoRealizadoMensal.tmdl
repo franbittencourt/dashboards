@@ -16,6 +16,8 @@ table FatoRealizadoMensal
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column Ano
 		dataType: int64
 		formatString: 0
@@ -67,7 +69,7 @@ table FatoRealizadoMensal
 		source =
 				let
 					Source = #table(
-						{"ProjetoID", "Data", "Ano", "Mes", "MesNome", "ValorRealizadoMes", "ValorRealizadoAcumulado", "Justificativa"},
+						type table [ProjetoID = Int64.Type, Data = type date, Ano = Int64.Type, Mes = Int64.Type, MesNome = type text, ValorRealizadoMes = number, ValorRealizadoAcumulado = number, Justificativa = type text],
 						{
 							{1, #date(2024,8,1), 2024, 8, "Agosto", 233340.1, 233340.1, null},
 							{1, #date(2024,9,1), 2024, 9, "Setembro", 127180.28, 360520.38, "Atraso na entrega de equipamentos importados"},
