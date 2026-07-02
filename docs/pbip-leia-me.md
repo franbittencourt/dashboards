@@ -33,6 +33,10 @@ Uma versão anterior gerava as tabelas com `#table(...)` **sem tipar as colunas*
 3. ~~Cores de fase no donut~~ **Já aplicado**: o donut da Visão Geral tem cores fixas por fase (via seletores de categoria no PBIR), idênticas às da coluna `DimFase[Cor]` usada pela capa HTML. A paleta de fases foi validada para daltonismo e contraste (violeta → teal → terracota para pré-execução; azul = Execução, laranja = Encerramento, verde = Concluído, vermelho = Cancelado).
 4. Revise os títulos dinâmicos: o card "Custo Linha de Base" mostra o valor numérico; logo abaixo, um segundo card (`vCicloLabelVersao`) mostra o texto "Custo Linha de Base (Rev X – dd/mm/aaaa)" como legenda — se preferir, dá para consolidar isso num título dinâmico do próprio card.
 
+## Spec de design (mockups Figma)
+
+Mockups vetoriais das 4 páginas (importáveis no Figma) e a tabela de tokens/coordenadas estão em [`docs/design-spec.md`](design-spec.md) e [`docs/spec/`](spec/).
+
 ## Design system do relatório (tema)
 
 O relatório usa um tema customizado (`PainelObras.Report/StaticResources/RegisteredResources/PainelObrasTheme.json`) que dá o acabamento em todas as páginas sem formatação manual por visual:
